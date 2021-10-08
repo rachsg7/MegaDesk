@@ -8,13 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace MegaDesk_Schutz
 {
     public partial class MainMenu : Form
     {
+        public static List<DisplayQuote> deskQuotes = new List<DisplayQuote>();
+        public const string JsonQuotesFile = @"Data\quotes.json";
         public MainMenu()
         {
-            InitializeComponent();
+           InitializeComponent();
         }
 
         private void MainMenu_Load(object sender, EventArgs e)
@@ -50,5 +53,7 @@ namespace MegaDesk_Schutz
             viewSearchQuotes.Show(this);
             Hide();
         }
+
+        
     }
 }

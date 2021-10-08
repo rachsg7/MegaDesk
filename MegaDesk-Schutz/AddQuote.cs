@@ -5,12 +5,17 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.IO;
+using Newtonsoft.Json;
+
 
 namespace MegaDesk_Schutz
 {
-    public partial class AddQuote : Form
+    
+     
+public partial class AddQuote : Form
     {
-
+               
         private bool isReadyToConfirm = false;
         private Desk newDesk { get; set; }
         public DeskQuote newQuote { get; set; }
@@ -183,10 +188,35 @@ namespace MegaDesk_Schutz
                 MessageBox.Show("Please create and view quote first before confirming order.", "Error");
                 return;
             }
+           
+            
             DisplayQuote viewDisplayQuote = new DisplayQuote(this);
+            addQuoteToList(viewDisplayQuote);
             viewDisplayQuote.Tag = this;
             viewDisplayQuote.Show(this);
             Hide();
+        }
+
+        public void addQuoteToList(DisplayQuote quote)
+        {
+
+            MainMenu.deskQuotes.Add(quote);
+
+            saveToJsonFile();
+        }
+
+        public void saveToJsonFile()
+        {
+            if (File.Exists(MainMenu.JsonQuotesFile))
+            {
+                var jsonData = JsonConvert.SerializeObject(MainMenu.deskQuotes, Formatting.Indented);
+
+                File.WriteAllText(MainMenu.JsonQuotesFile, jsonData);
+            }
+            else
+            {
+                MessageBox.Show("Error: Could not find JSON file.");
+            }
         }
     }
 }

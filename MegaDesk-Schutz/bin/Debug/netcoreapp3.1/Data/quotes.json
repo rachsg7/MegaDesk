@@ -1,0 +1,20 @@
+[
+  {
+    "customerDesk": {
+      "width": 33,
+      "depth": 23,
+      "drawers": 2,
+      "material": 2
+    },
+    "customerName": "Jessica Duckworth",
+    "area": 759,
+    "areaCost": 200,
+    "rushDays": 0,
+    "drawers": 2,
+    "drawerCost": 100,
+    "materialCost": 300,
+    "rushOrderCost": 0,
+    "totalCost": 600,
+    "quoteDate": "2021-10-07T17:48:04.1642586-06:00"
+  }
+]
