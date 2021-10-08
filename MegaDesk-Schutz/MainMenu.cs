@@ -7,14 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using Newtonsoft.Json;
+using System.Text.Json;
+//using System.Text.Json.Serialization;
+
+
 
 namespace MegaDesk_Schutz
 {
     public partial class MainMenu : Form
     {
+        public static List<DeskQuote> deskQuotes = new List<DeskQuote>();
+        public const string JsonQuotesFile = @"Data\quotes.json";
         public MainMenu()
         {
-            InitializeComponent();
+           InitializeComponent();
         }
 
         private void MainMenu_Load(object sender, EventArgs e)
@@ -49,6 +57,30 @@ namespace MegaDesk_Schutz
             viewSearchQuotes.Tag = this;
             viewSearchQuotes.Show(this);
             Hide();
+        }
+        public static void addQuoteToList(DeskQuote quote)
+        {
+
+            deskQuotes.Add(quote);
+
+            saveToJsonFile();
+        }
+
+        public static void saveToJsonFile()
+        {
+            if (File.Exists(JsonQuotesFile))
+            {
+               
+               // string json = JsonSerializer.Serialize(deskQuotes);
+               // File.AppendAllText(JsonQuotesFile, json);
+               var jsonData = JsonConvert.SerializeObject(deskQuotes, Formatting.Indented);
+
+               File.AppendAllText(@"Data\quotes.json", jsonData);
+            }
+            else
+            {
+                MessageBox.Show("Error: Could not find JSON file.");
+            }
         }
     }
 }

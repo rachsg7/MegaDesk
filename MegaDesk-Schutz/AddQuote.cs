@@ -6,11 +6,15 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
+
+
 namespace MegaDesk_Schutz
 {
-    public partial class AddQuote : Form
+    
+     
+public partial class AddQuote : Form
     {
-
+               
         private bool isReadyToConfirm = false;
         private Desk newDesk { get; set; }
         public DeskQuote newQuote { get; set; }
@@ -111,6 +115,7 @@ namespace MegaDesk_Schutz
                 
                 newDesk = new Desk(width, depth, drawers, material);
                 newQuote = new DeskQuote(newDesk, customerNameTextbox.Text, rushOrder);
+                MainMenu.addQuoteToList(newQuote);
 
                 newQuote.CalculateQuote();
 
@@ -183,6 +188,8 @@ namespace MegaDesk_Schutz
                 MessageBox.Show("Please create and view quote first before confirming order.", "Error");
                 return;
             }
+           
+            
             DisplayQuote viewDisplayQuote = new DisplayQuote(this);
             viewDisplayQuote.Tag = this;
             viewDisplayQuote.Show(this);

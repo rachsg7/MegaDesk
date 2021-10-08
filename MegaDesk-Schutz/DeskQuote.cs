@@ -1,7 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows.Forms;
+using System.Threading.Tasks;
 using System.IO;
+using Newtonsoft.Json;
+
 
 namespace MegaDesk_Schutz
 {
@@ -80,21 +84,6 @@ namespace MegaDesk_Schutz
             }
         }
 
-        public const string RUSHORDERPRICES = @"rushOrderPrices.txt";
-
-        public static int[] GetPrices()
-        {
-            string[] lines = File.ReadAllLines(RUSHORDERPRICES);
-
-            int[] rushOrderPrices = new int[lines.Length];
-
-            for (int i = 0; i < lines.Length; i++)
-            {
-                rushOrderPrices[i] = Int32.Parse(lines[i]);
-            }
-            return rushOrderPrices;
-        }
-
         public int getRushOrderPrice(int rushOrder)
         {
             switch(rushOrder)
@@ -105,43 +94,43 @@ namespace MegaDesk_Schutz
                 case 1:
                     if(area < 1000)
                     {
-                        return GetPrices()[0];
+                        return 60;
                     }
                     else if(area >= 1000 && area <= 2000)
                     {
-                        return GetPrices()[1];
+                        return 70;
                     }
                     else if(area > 2000)
                     {
-                        return GetPrices()[2];
+                        return 80;
                     }
                     break;
                 case 2:
                     if(area < 1000)
                     {
-                        return GetPrices()[3];
+                        return 40;
                     }
                     else if(area >= 1000 && area <= 2000)
                     {
-                        return GetPrices()[4];
+                        return 50;
                     }
                     else if(area > 2000)
                     {
-                        return GetPrices()[5];
+                        return 60;
                     }
                     break;
                 case 3:
                     if(area < 1000)
                     {
-                        return GetPrices()[6];
+                        return 30;
                     }
                     else if(area >= 1000 && area <= 2000)
                     {
-                        return GetPrices()[7];
+                        return 35;
                     }
                     else if(area > 2000)
                     {
-                        return GetPrices()[8];
+                        return 40;
                     }
                     break;
                 default:
@@ -149,5 +138,7 @@ namespace MegaDesk_Schutz
             }
             return 0;
         }
+
+        
     }
 }
