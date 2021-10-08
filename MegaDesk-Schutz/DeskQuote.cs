@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.IO;
 
 namespace MegaDesk_Schutz
 {
@@ -79,6 +80,21 @@ namespace MegaDesk_Schutz
             }
         }
 
+        public const string RUSHORDERPRICES = @"rushOrderPrices.txt";
+
+        public static int[] GetPrices()
+        {
+            string[] lines = File.ReadAllLines(RUSHORDERPRICES);
+
+            int[] rushOrderPrices = new int[lines.Length];
+
+            for (int i = 0; i < lines.Length; i++)
+            {
+                rushOrderPrices[i] = Int32.Parse(lines[i]);
+            }
+            return rushOrderPrices;
+        }
+
         public int getRushOrderPrice(int rushOrder)
         {
             switch(rushOrder)
@@ -89,43 +105,43 @@ namespace MegaDesk_Schutz
                 case 1:
                     if(area < 1000)
                     {
-                        return 60;
+                        return GetPrices()[0];
                     }
                     else if(area >= 1000 && area <= 2000)
                     {
-                        return 70;
+                        return GetPrices()[1];
                     }
                     else if(area > 2000)
                     {
-                        return 80;
+                        return GetPrices()[2];
                     }
                     break;
                 case 2:
                     if(area < 1000)
                     {
-                        return 40;
+                        return GetPrices()[3];
                     }
                     else if(area >= 1000 && area <= 2000)
                     {
-                        return 50;
+                        return GetPrices()[4];
                     }
                     else if(area > 2000)
                     {
-                        return 60;
+                        return GetPrices()[5];
                     }
                     break;
                 case 3:
                     if(area < 1000)
                     {
-                        return 30;
+                        return GetPrices()[6];
                     }
                     else if(area >= 1000 && area <= 2000)
                     {
-                        return 35;
+                        return GetPrices()[7];
                     }
                     else if(area > 2000)
                     {
-                        return 40;
+                        return GetPrices()[8];
                     }
                     break;
                 default:
