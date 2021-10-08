@@ -5,11 +5,14 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.Threading.Tasks;
+
 
 namespace MegaDesk_Schutz
 {
     public partial class DisplayQuote : Form
     {
+        
         public AddQuote ParentMenu { get; }
         public DisplayQuote(AddQuote parent)
         {
@@ -34,11 +37,13 @@ namespace MegaDesk_Schutz
             rushOrderCustomerLabel.Text = getRushOrderDays(myQuote.rushDays);
             rushOrderPriceLabel.Text = "$" + myQuote.rushOrderCost.ToString();
             totalCostLabel.Text = "$" + myQuote.totalCost.ToString();
+            
+            
         }
 
         private String getRushOrderDays(int days)
         {
-            switch(days)
+            switch (days)
             {
                 case 0:
                     return "0";

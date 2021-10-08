@@ -1,0 +1,134 @@
+{
+
+}
+[
+  {
+    "customerDesk": {
+      "width": 33,
+      "depth": 33,
+      "drawers": 1,
+      "material": 0
+    },
+    "customerName": "Jessica",
+    "area": 1089,
+    "areaCost": 0,
+    "rushDays": 0,
+    "drawers": 1,
+    "drawerCost": 0,
+    "materialCost": 0,
+    "rushOrderCost": 0,
+    "totalCost": 0,
+    "quoteDate": "2021-10-08T16:27:26.3171746-06:00"
+  }
+][
+  {
+    "customerDesk": {
+      "width": 33,
+      "depth": 44,
+      "drawers": 1,
+      "material": 0
+    },
+    "customerName": "Test2",
+    "area": 1452,
+    "areaCost": 0,
+    "rushDays": 0,
+    "drawers": 1,
+    "drawerCost": 0,
+    "materialCost": 0,
+    "rushOrderCost": 0,
+    "totalCost": 0,
+    "quoteDate": "2021-10-08T16:28:09.13509-06:00"
+  }
+][
+  {
+    "customerDesk": {
+      "width": 33,
+      "depth": 44,
+      "drawers": 1,
+      "material": 0
+    },
+    "customerName": "Test2",
+    "area": 1452,
+    "areaCost": 652,
+    "rushDays": 0,
+    "drawers": 1,
+    "drawerCost": 50,
+    "materialCost": 100,
+    "rushOrderCost": 0,
+    "totalCost": 802,
+    "quoteDate": "2021-10-08T16:28:09.13509-06:00"
+  },
+  {
+    "customerDesk": {
+      "width": 32,
+      "depth": 33,
+      "drawers": 1,
+      "material": 0
+    },
+    "customerName": "Test3",
+    "area": 1056,
+    "areaCost": 0,
+    "rushDays": 0,
+    "drawers": 1,
+    "drawerCost": 0,
+    "materialCost": 0,
+    "rushOrderCost": 0,
+    "totalCost": 0,
+    "quoteDate": "2021-10-08T16:29:15.6219365-06:00"
+  }
+][
+  {
+    "customerDesk": {
+      "width": 33,
+      "depth": 44,
+      "drawers": 1,
+      "material": 0
+    },
+    "customerName": "Test2",
+    "area": 1452,
+    "areaCost": 652,
+    "rushDays": 0,
+    "drawers": 1,
+    "drawerCost": 50,
+    "materialCost": 100,
+    "rushOrderCost": 0,
+    "totalCost": 802,
+    "quoteDate": "2021-10-08T16:28:09.13509-06:00"
+  },
+  {
+    "customerDesk": {
+      "width": 32,
+      "depth": 33,
+      "drawers": 1,
+      "material": 0
+    },
+    "customerName": "Test3",
+    "area": 1056,
+    "areaCost": 256,
+    "rushDays": 0,
+    "drawers": 1,
+    "drawerCost": 50,
+    "materialCost": 100,
+    "rushOrderCost": 0,
+    "totalCost": 406,
+    "quoteDate": "2021-10-08T16:29:15.6219365-06:00"
+  },
+  {
+    "customerDesk": {
+      "width": 33,
+      "depth": 33,
+      "drawers": 1,
+      "material": 0
+    },
+    "customerName": "Test4",
+    "area": 1089,
+    "areaCost": 0,
+    "rushDays": 0,
+    "drawers": 1,
+    "drawerCost": 0,
+    "materialCost": 0,
+    "rushOrderCost": 0,
+    "totalCost": 0,
+    "quoteDate": "2021-10-08T16:29:44.1750387-06:00"
+  }
+]
