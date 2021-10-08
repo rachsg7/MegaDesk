@@ -15,7 +15,7 @@ namespace MegaDesk_Schutz
 {
     public partial class MainMenu : Form
     {
-        public static List<DisplayQuote> deskQuotes = new List<DisplayQuote>();
+        public static List<DeskQuote> deskQuotes = new List<DeskQuote>();
         public const string JsonQuotesFile = @"Data\quotes.json";
         public MainMenu()
         {
@@ -55,7 +55,7 @@ namespace MegaDesk_Schutz
             viewSearchQuotes.Show(this);
             Hide();
         }
-        public static void addQuoteToList(Deskquote quote)
+        public static void addQuoteToList(DeskQuote quote)
         {
 
             MainMenu.deskQuotes.Add(quote);
@@ -65,11 +65,11 @@ namespace MegaDesk_Schutz
 
         public static void saveToJsonFile()
         {
-            if (File.Exists(MainMenu.JsonQuotesFile))
+            if (File.Exists(JsonQuotesFile))
             {
-                var jsonData = JsonConvert.SerializeObject(MainMenu.deskQuotes, Formatting.Indented);
+                var jsonData = JsonConvert.SerializeObject(deskQuotes, Formatting.Indented);
 
-                File.WriteAllText(MainMenu.JsonQuotesFile, jsonData);
+                File.WriteAllText(JsonQuotesFile, jsonData);
             }
             else
             {
