@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using Newtonsoft.Json;
+using System.Text.Json;
+//using System.Text.Json.Serialization;
+
 
 
 namespace MegaDesk_Schutz
@@ -58,7 +61,7 @@ namespace MegaDesk_Schutz
         public static void addQuoteToList(DeskQuote quote)
         {
 
-            MainMenu.deskQuotes.Add(quote);
+            deskQuotes.Add(quote);
 
             saveToJsonFile();
         }
@@ -67,9 +70,12 @@ namespace MegaDesk_Schutz
         {
             if (File.Exists(JsonQuotesFile))
             {
-                var jsonData = JsonConvert.SerializeObject(deskQuotes, Formatting.Indented);
+               
+               // string json = JsonSerializer.Serialize(deskQuotes);
+               // File.AppendAllText(JsonQuotesFile, json);
+               var jsonData = JsonConvert.SerializeObject(deskQuotes, Formatting.Indented);
 
-                File.WriteAllText(JsonQuotesFile, jsonData);
+               File.AppendAllText(@"Data\quotes.json", jsonData);
             }
             else
             {
