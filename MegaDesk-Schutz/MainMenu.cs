@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using Newtonsoft.Json;
 
 
 namespace MegaDesk_Schutz
@@ -53,7 +55,26 @@ namespace MegaDesk_Schutz
             viewSearchQuotes.Show(this);
             Hide();
         }
+        public static void addQuoteToList(Deskquote quote)
+        {
 
-        
+            MainMenu.deskQuotes.Add(quote);
+
+            saveToJsonFile();
+        }
+
+        public static void saveToJsonFile()
+        {
+            if (File.Exists(MainMenu.JsonQuotesFile))
+            {
+                var jsonData = JsonConvert.SerializeObject(MainMenu.deskQuotes, Formatting.Indented);
+
+                File.WriteAllText(MainMenu.JsonQuotesFile, jsonData);
+            }
+            else
+            {
+                MessageBox.Show("Error: Could not find JSON file.");
+            }
+        }
     }
 }

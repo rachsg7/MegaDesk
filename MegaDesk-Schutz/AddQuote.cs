@@ -5,8 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using System.IO;
-using Newtonsoft.Json;
+
 
 
 namespace MegaDesk_Schutz
@@ -116,6 +115,7 @@ public partial class AddQuote : Form
                 
                 newDesk = new Desk(width, depth, drawers, material);
                 newQuote = new DeskQuote(newDesk, customerNameTextbox.Text, rushOrder);
+                MainMenu.addQuoteToList(newQuote);
 
                 newQuote.CalculateQuote();
 
@@ -191,32 +191,9 @@ public partial class AddQuote : Form
            
             
             DisplayQuote viewDisplayQuote = new DisplayQuote(this);
-            addQuoteToList(viewDisplayQuote);
             viewDisplayQuote.Tag = this;
             viewDisplayQuote.Show(this);
             Hide();
-        }
-
-        public void addQuoteToList(DisplayQuote quote)
-        {
-
-            MainMenu.deskQuotes.Add(quote);
-
-            saveToJsonFile();
-        }
-
-        public void saveToJsonFile()
-        {
-            if (File.Exists(MainMenu.JsonQuotesFile))
-            {
-                var jsonData = JsonConvert.SerializeObject(MainMenu.deskQuotes, Formatting.Indented);
-
-                File.WriteAllText(MainMenu.JsonQuotesFile, jsonData);
-            }
-            else
-            {
-                MessageBox.Show("Error: Could not find JSON file.");
-            }
         }
     }
 }
