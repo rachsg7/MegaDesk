@@ -115,9 +115,9 @@ public partial class AddQuote : Form
                 
                 newDesk = new Desk(width, depth, drawers, material);
                 newQuote = new DeskQuote(newDesk, customerNameTextbox.Text, rushOrder);
-                MainMenu.addQuoteToList(newQuote);
-
+                
                 newQuote.CalculateQuote();
+                MainMenu.addQuoteToList(newQuote);
 
                 totalAreaLabel.Text = newQuote.area.ToString() + " in squared";
                 areaCostLabel.Text = "$" + newQuote.areaCost.ToString();

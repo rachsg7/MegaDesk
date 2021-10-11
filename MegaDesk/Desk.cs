@@ -14,11 +14,12 @@ namespace MegaDesk_Schutz
     }
     public class Desk
     {
-        public int width { get; }
-        public int depth { get; }
-        public int drawers { get; }
-        public DesktopMaterial material { get; }
+        public int width { get; set; }
+        public int depth { get; set; }
+        public int drawers { get; set; }
+        public DesktopMaterial material { get; set; }
 
+        public Desk() { }
         public Desk(int xwidth, int xdepth, int xdrawers, DesktopMaterial xmaterial)
         {
             width = xwidth;
