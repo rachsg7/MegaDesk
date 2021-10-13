@@ -33,6 +33,7 @@ namespace MegaDesk_Schutz
             this.searchQuotesBackButton = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // searchQuotesBackButton
@@ -48,25 +49,43 @@ namespace MegaDesk_Schutz
             // 
             // comboBox1
             // 
+            this.comboBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
+            "Laminate",
             "Oak",
+            "Rosewood",
             "Veneer",
-            "Rosewood"});
-            this.comboBox1.Location = new System.Drawing.Point(68, 115);
+            "Pine"});
+            this.comboBox1.Location = new System.Drawing.Point(232, 329);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(182, 33);
+            this.comboBox1.Size = new System.Drawing.Size(200, 40);
             this.comboBox1.TabIndex = 3;
+            this.comboBox1.Text = " Select Material";
             this.comboBox1.SelectionChangeCommitted += new System.EventHandler(this.comboBox1_SelectionChangeCommitted);
             // 
             // panel1
             // 
             this.panel1.AutoScroll = true;
             this.panel1.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.panel1.Location = new System.Drawing.Point(349, 115);
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Location = new System.Drawing.Point(467, 141);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(618, 548);
+            this.panel1.Size = new System.Drawing.Size(428, 416);
             this.panel1.TabIndex = 4;
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(467, 100);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(428, 42);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Quotes by material";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // SearchQuotes
             // 
@@ -74,6 +93,7 @@ namespace MegaDesk_Schutz
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1134, 722);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.searchQuotesBackButton);
@@ -82,6 +102,7 @@ namespace MegaDesk_Schutz
             this.MinimumSize = new System.Drawing.Size(1156, 778);
             this.Name = "SearchQuotes";
             this.Text = "SearchQuotes";
+            this.Load += new System.EventHandler(this.SearchQuotes_Load);
             this.ResumeLayout(false);
 
         }
@@ -91,5 +112,6 @@ namespace MegaDesk_Schutz
         private System.Windows.Forms.Button searchQuotesBackButton;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label1;
     }
 }
