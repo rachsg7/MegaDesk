@@ -52,13 +52,7 @@ namespace MegaDesk_Schutz
             this.comboBox1.BackColor = System.Drawing.SystemColors.Control;
             this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Laminate",
-            "Oak",
-            "Rosewood",
-            "Veneer",
-            "Pine"});
-            this.comboBox1.Location = new System.Drawing.Point(232, 329);
+            this.comboBox1.Location = new System.Drawing.Point(235, 102);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(200, 40);
             this.comboBox1.TabIndex = 3;

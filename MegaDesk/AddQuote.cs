@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Text;
+using System.Linq;
 using System.Windows.Forms;
 
 
@@ -137,8 +138,15 @@ public partial class AddQuote : Form
 
         private void AddQuote_Load(object sender, EventArgs e)
         {
+            
+            
+
+            List<DesktopMaterial> materialsList = Enum.GetValues(typeof(DesktopMaterial)).Cast<DesktopMaterial>().ToList();
+
+            desktopMaterialBox.DataSource = materialsList;
+            desktopMaterialBox.Text = "Select Material";
+
             rushOrderOptionsBox.SelectedIndex = 0;
-            desktopMaterialBox.SelectedIndex = 0;
         }
 
         private void drawersNumberCounter_Validated(object sender, EventArgs e)

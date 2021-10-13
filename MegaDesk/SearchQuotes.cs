@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
@@ -30,24 +31,19 @@ namespace MegaDesk_Schutz
             int count = 0;
             foreach (DeskQuote quote in MainMenu.deskQuotes)
             {
-               
-
                 if (quote.customerDesk.material.ToString() == comboBox1.SelectedItem.ToString())
                 {
-
                     // Create panel
                     Panel quotePanel = new Panel();
                     quotePanel.Location = new Point(0, (0 + (434 * count)));
-                    if ( MainMenu.deskQuotes.Count > 1 && quote.customerDesk.material.ToString() == comboBox1.SelectedItem.ToString())
-                    {
-                        quotePanel.Size = new Size(400, 414);
-                    }
-                    else
+                    quotePanel.Size = new Size(400, 414);
+                    quotePanel.BackColor = Color.WhiteSmoke;
+
+
+                    /*if ( MainMenu.deskQuotes.Count < 1 && quote.customerDesk.material.ToString() == comboBox1.SelectedItem.ToString())
                     {
                         quotePanel.Size = new Size(426, 414);
-                    }
-                    
-                    quotePanel.BackColor = Color.WhiteSmoke;
+                    }*/
 
                     // User Name Label
                     Label userNameLabel = new Label();
@@ -86,6 +82,8 @@ namespace MegaDesk_Schutz
                     overallPriceLabel.TextAlign = ContentAlignment.MiddleLeft;
                     overallPriceLabel.Font = new Font("Segoe UI", 12);
 
+
+                    //add each panel to the parent panel
                     quotePanel.Controls.Add(userNameLabel);
                     quotePanel.Controls.Add(dateLabel);
                     quotePanel.Controls.Add(specsLabel);
@@ -96,12 +94,37 @@ namespace MegaDesk_Schutz
                 }
                 
             }
+
+            //if no quoetes matched the material selected
+            if (count == 0)
+            {
+                // Create panel
+                Panel quotePanel = new Panel();
+                quotePanel.Size = new Size(426, 414);
+                quotePanel.BackColor = Color.WhiteSmoke;
+                panel1.Controls.Add(quotePanel);
+
+                // User Name Label
+                Label noQuotes = new Label();
+                noQuotes.Text = "No Quotes were found with this material.";
+                noQuotes.Location = new Point(50, 40);
+                noQuotes.Size = new Size(300, 100);
+                noQuotes.BackColor = Color.Gainsboro;
+                noQuotes.TextAlign = ContentAlignment.MiddleCenter;
+                noQuotes.Font = new Font("Segoe UI", 12);
+
+                quotePanel.Controls.Add(noQuotes);
+
+                panel1.Controls.Add(quotePanel);
+            }
         }
 
         private void SearchQuotes_Load(object sender, EventArgs e)
         {
-            DesktopMaterial material = new DesktopMaterial();
-            //comboBox1.Items.Add(material);
+            List<DesktopMaterial> materialsList = Enum.GetValues(typeof(DesktopMaterial)).Cast<DesktopMaterial>().ToList();
+
+            comboBox1.DataSource = materialsList;
+            comboBox1.Text = "Select Material";
         }
     }
 }
