@@ -101,7 +101,7 @@ namespace MegaDesk_Schutz
         private void SearchQuotes_Load(object sender, EventArgs e)
         {
             DesktopMaterial material = new DesktopMaterial();
-            comboBox1.Items.Add(material);
+            //comboBox1.Items.Add(material);
         }
     }
 }
