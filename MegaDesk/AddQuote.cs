@@ -138,15 +138,12 @@ public partial class AddQuote : Form
 
         private void AddQuote_Load(object sender, EventArgs e)
         {
-            
-            
+            rushOrderOptionsBox.SelectedIndex = 0;
 
             List<DesktopMaterial> materialsList = Enum.GetValues(typeof(DesktopMaterial)).Cast<DesktopMaterial>().ToList();
 
             desktopMaterialBox.DataSource = materialsList;
-            desktopMaterialBox.Text = "Select Material";
-
-            rushOrderOptionsBox.SelectedIndex = 0;
+            desktopMaterialBox.Text = "Select Material";  
         }
 
         private void drawersNumberCounter_Validated(object sender, EventArgs e)
