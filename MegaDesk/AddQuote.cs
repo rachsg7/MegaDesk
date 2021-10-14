@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Text;
+using System.Linq;
 using System.Windows.Forms;
 
 
@@ -115,9 +116,9 @@ public partial class AddQuote : Form
                 
                 newDesk = new Desk(width, depth, drawers, material);
                 newQuote = new DeskQuote(newDesk, customerNameTextbox.Text, rushOrder);
-                MainMenu.addQuoteToList(newQuote);
-
+                
                 newQuote.CalculateQuote();
+                MainMenu.addQuoteToList(newQuote);
 
                 totalAreaLabel.Text = newQuote.area.ToString() + " in squared";
                 areaCostLabel.Text = "$" + newQuote.areaCost.ToString();
@@ -138,7 +139,11 @@ public partial class AddQuote : Form
         private void AddQuote_Load(object sender, EventArgs e)
         {
             rushOrderOptionsBox.SelectedIndex = 0;
-            desktopMaterialBox.SelectedIndex = 0;
+
+            List<DesktopMaterial> materialsList = Enum.GetValues(typeof(DesktopMaterial)).Cast<DesktopMaterial>().ToList();
+
+            desktopMaterialBox.DataSource = materialsList;
+            desktopMaterialBox.Text = "Select Material";  
         }
 
         private void drawersNumberCounter_Validated(object sender, EventArgs e)

@@ -13,7 +13,7 @@
 
   <ItemGroup>
     <Content Include="Data\quotes.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
 

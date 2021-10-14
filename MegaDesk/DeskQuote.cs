@@ -11,19 +11,20 @@ namespace MegaDesk_Schutz
 {
     public class DeskQuote
     {
-        public Desk customerDesk { get; }
+        public Desk customerDesk { get; set;  }
 
-        public String customerName { get; }
-        public int area { get; }
+        public String customerName { get; set;  }
+        public int area { get; set; }
         public int areaCost { get; set; }
-        public int rushDays { get; }
-        public int drawers { get; }
+        public int rushDays { get; set; }
+        public int drawers { get; set; }
         public int drawerCost { get; set; }
         public int materialCost { get; set; }
         public int rushOrderCost { get; set; }
         public int totalCost { get; set; }
-        public DateTime quoteDate { get; }
+        public DateTime quoteDate { get; set; }
 
+        public DeskQuote() { }
         public DeskQuote(Desk newCustomerDesk, String name, int newRushDays)
         {
             customerDesk = newCustomerDesk;

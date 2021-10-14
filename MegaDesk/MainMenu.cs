@@ -58,9 +58,25 @@ namespace MegaDesk_Schutz
             viewSearchQuotes.Show(this);
             Hide();
         }
+
+        public static void getAllDeskQuotes()
+        {
+            if(File.Exists(JsonQuotesFile))
+            {
+                string allQuotes = File.ReadAllText(JsonQuotesFile);
+                deskQuotes = JsonConvert.DeserializeObject<List<DeskQuote>>(allQuotes/*, new JsonSerializerSettings
+                {
+                    DateTimeZoneHandling = DateTimeZoneHandling.Utc
+                }*/);
+            }
+            else
+            {
+                MessageBox.Show("Error: Could not find JSON file.");
+            }
+        }
         public static void addQuoteToList(DeskQuote quote)
         {
-
+            getAllDeskQuotes();
             deskQuotes.Add(quote);
 
             saveToJsonFile();
@@ -75,7 +91,7 @@ namespace MegaDesk_Schutz
                // File.AppendAllText(JsonQuotesFile, json);
                var jsonData = JsonConvert.SerializeObject(deskQuotes, Formatting.Indented);
 
-               File.AppendAllText(@"Data\quotes.json", jsonData);
+               File.WriteAllText(@"Data\quotes.json", jsonData);
             }
             else
             {
